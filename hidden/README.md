@@ -2,5 +2,5 @@
 
 用于隐藏力扣特征，以便在办公室正大光明的刷力扣。
 
-![](.README_images/bf999bbf.png)
+![image-20230201114909391](README.assets/image-20230201114909391.png)
 
