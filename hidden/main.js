@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         力扣隐藏
-// @namespace    https://github.com/JSREI/leetcode-skin/hidden
+// @namespace    https://github.com/JSREI/leetcode-skin/tree/main/hidden
 // @version      0.1
 // @description  隐藏LeetCode的页面
 // @author       CC11001100
@@ -10,6 +10,9 @@
 
 (function () {
     'use strict';
+
+    // 页面的icon要替换为哪个
+    const iconUrl = "https://github.githubassets.com/favicons/favicon.png";
 
     setInterval(() => {
 
@@ -26,12 +29,13 @@
             document.title = document.title.replaceAll(documentTitleSuffix, "");
         }
 
+        // 把页面的icon替换为GitHub的
         let iconLink = document.querySelector("link[rel*='icon']");
         if (!iconLink) {
             iconLink = document.createElement("link");
             iconLink.type = "image/x-icon";
             iconLink.rel = "shortcut icon";
-            iconLink.href = "https://github.githubassets.com/favicons/favicon.png";
+            iconLink.href = iconUrl;
             document.getElementsByTagName("head")[0].appendChild(iconLink);
         }
 
