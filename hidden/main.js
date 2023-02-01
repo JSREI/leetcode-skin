@@ -16,16 +16,17 @@
 
     setInterval(() => {
 
-        // 隐藏掉上面的导航栏
-        const nav = document.querySelector("[class='relative flex h-[50px] w-full shrink-0 items-center px-5 z-nav-1 bg-layer-1 dark:bg-dark-layer-1']");
-        if (nav) {
-            nav.remove();
-        }
+        // 隐藏掉上面的几个导航栏
+        // 最上面的导航
+        removeIfExists("[class='relative flex h-[50px] w-full shrink-0 items-center px-5 z-nav-1 bg-layer-1 dark:bg-dark-layer-1']");
+        // 然后是下边的编辑框的导航
+        removeIfExists("[class='flex min-h-[44px] flex-shrink-0 flex-wrap items-center pr-5']");
+        // 题目详情的导航
+        removeIfExists("[class='flex h-11 w-full items-center pt-2']");
 
         // 把网页标题中的力扣字样隐藏掉
         const documentTitleSuffix = "- 力扣（Leetcode）";
         if (document.title.endsWith(documentTitleSuffix)) {
-            debugger;
             document.title = document.title.replaceAll(documentTitleSuffix, "");
         }
 
@@ -40,5 +41,17 @@
         }
 
     }, 1000);
+
+    /**
+     * 如果选择器选中的元素存在的话，则将其删除
+     *
+     * @param querySelector {string}
+     */
+    function removeIfExists(querySelector) {
+        const element = document.querySelector(querySelector);
+        if (element) {
+            element.setAttribute("hidden", true);
+        }
+    }
 
 })();
